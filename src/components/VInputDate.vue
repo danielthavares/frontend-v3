@@ -7,8 +7,8 @@ import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 
 interface Props {
   modelValue: string | null;
-  disabled?: boolean;
   label?: string;
+  disabled?: boolean;
   required?: boolean;
   failures?: Array<string>;
   i18n?: any;
