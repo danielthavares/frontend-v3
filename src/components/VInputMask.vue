@@ -28,11 +28,14 @@ const emit = defineEmits<{
 const local = computed(() => props.modelValue);
 
 watch(local, (nValue) => {
-  mask.value.value = nValue;
+  mask.value.value = nValue ? nValue : "";
 });
 
 function _update() {
-  emit("update:model-value", mask.value.unmaskedValue);
+  emit(
+    "update:model-value",
+    mask.value.unmaskedValue ? mask.value.unmaskedValue : null
+  );
 }
 
 function _init() {

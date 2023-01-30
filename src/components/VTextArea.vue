@@ -2,21 +2,21 @@
 import VField from "./VField.vue";
 
 interface Props {
-  modelValue: string | null;
-  maxlength?: number;
-  disabled?: boolean;
-  password?: boolean;
+  modelValue: any;
   label?: string;
+  cols?: number;
+  rows?: number;
+  disabled?: boolean;
   required?: boolean;
   failures?: Array<string>;
 }
 
 withDefaults(defineProps<Props>(), {
   modelValue: null,
-  maxlength: 50,
+  cols: 0,
+  rows: 0,
   disabled: false,
   required: false,
-  password: false,
   failures: () => [],
 });
 
@@ -31,13 +31,13 @@ function _onInput(e: Event) {
 </script>
 <template>
   <v-field :label="label" :required="required" :failures="failures">
-    <input
+    <textarea
       class="form-control form-control-sm"
       :class="{ 'is-invalid': failures.length > 0 }"
       :value="modelValue"
-      :type="password ? 'password' : 'text'"
-      :maxlength="maxlength"
       :disabled="disabled"
+      :rows="rows"
+      :cols="cols"
       @input="_onInput"
     />
   </v-field>
