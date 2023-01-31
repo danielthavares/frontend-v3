@@ -6,7 +6,7 @@ interface Props {
   modelValue: any;
   description: string;
   inline?: boolean;
-  onSwitch?: boolean;
+  asSwitch?: boolean;
   label?: string;
   disabled?: boolean;
   required?: boolean;
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   modelValue: null,
   description: "description",
   inline: false,
-  onSwitch: false,
+  asSwitch: false,
   disabled: false,
   required: false,
   failures: () => [],
@@ -43,7 +43,7 @@ const model = computed({
       :class="{
         disabled: disabled,
         'form-check-inline': inline === true,
-        'form-switch': onSwitch === true,
+        'form-switch': asSwitch === true,
       }"
     >
       <input
