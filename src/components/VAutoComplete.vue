@@ -44,6 +44,10 @@ const local = computed(() =>
 const items = ref([]);
 const isBusy = ref(false);
 const error = ref(null);
+const hasError = computed(() => props.failures.length > 0);
+const hasErrorButton = computed(() =>
+  hasError.value ? "btn-outline-danger" : "btn-outline-secondary"
+);
 
 watch(local, (nValue) => {
   termo.value = nValue;
@@ -101,7 +105,7 @@ onMounted(_init);
     <div class="input-group">
       <input
         class="form-control form-control-sm"
-        :class="{ 'is-invalid': failures.length > 0 }"
+        :class="{ 'is-invalid': hasError }"
         type="text"
         :value="termo"
         :maxlength="maxlength"
@@ -111,7 +115,8 @@ onMounted(_init);
       />
       <button
         v-if="termo"
-        class="btn btn-sm btn-outline-secondary"
+        class="btn btn-sm"
+        :class="hasErrorButton"
         type="button"
         :disabled="disabled"
         @click="_limpando()"
@@ -120,7 +125,8 @@ onMounted(_init);
       </button>
       <button
         v-else
-        class="btn btn-sm btn-outline-secondary"
+        class="btn btn-sm"
+        :class="hasErrorButton"
         type="button"
         readonly
         :disabled="disabled"

@@ -49,7 +49,7 @@ const textAreaModel = ref(null);
 const checkBoxModel = ref();
 const radioModel = ref();
 const selectModel = ref();
-const autoCompleteModel = ref();
+const autoCompleteModel = ref({ id: 8, name: "João" });
 
 const required = ref(true);
 const disabled = ref(false);
