@@ -48,9 +48,9 @@ const model = computed({
     >
       <input
         v-model="model"
+        type="checkbox"
         class="form-check-input"
         :class="{ 'is-invalid': failures.length > 0, 'ms-0': inline === true }"
-        type="checkbox"
         :disabled="disabled"
       />
       <label class="form-check-label">

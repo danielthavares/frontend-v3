@@ -6,7 +6,7 @@ import VInputNumber from "@/components/VInputNumber.vue";
 import VTextArea from "@/components/VTextArea.vue";
 import VCheckBox from "@/components/VCheckBox.vue";
 import VRadio from "@/components/VRadio.vue";
-
+import VTooltip from "@/components/VTooltip.vue";
 import { ref } from "vue";
 
 const errors = {
@@ -82,7 +82,7 @@ const disabled = ref(false);
           :failures="errors['without']"
           :required="required"
           :disabled="disabled"
-          :on-switch="false"
+          :on-switch="true"
         />
         <v-radio
           v-model="radioModel"
@@ -95,6 +95,9 @@ const disabled = ref(false);
         />
       </div>
       <div class="col">
+        <v-tooltip message="State">
+          <p class="fw-bold">State</p>
+        </v-tooltip>
         <pre>
           <p>input model: {{ inputModel }}</p>
           <p>input date model: {{ inputDateModel }}</p>

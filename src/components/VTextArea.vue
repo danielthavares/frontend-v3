@@ -13,8 +13,8 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   modelValue: null,
-  cols: 0,
-  rows: 0,
+  cols: 10,
+  rows: 5,
   disabled: false,
   required: false,
   failures: () => [],
