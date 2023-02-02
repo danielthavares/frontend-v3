@@ -11,7 +11,7 @@ const data = [
   { id: 10, name: "Tiago" },
 ];
 
-export function names(param: string) {
+export function names(param: string): Promise<any> {
   if (param) {
     param = param.toLowerCase();
     const result = data.filter((x) => x.name.toLowerCase().includes(param));
