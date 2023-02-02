@@ -10,6 +10,9 @@ import { RouterLink, RouterView } from "vue-router";
         <RouterLink to="/example/form" class="me-2"
           >Form Inputs Example</RouterLink
         >
+        <RouterLink to="/example/components" class="me-2"
+          >Components Example</RouterLink
+        >
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
