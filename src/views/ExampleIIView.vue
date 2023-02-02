@@ -7,6 +7,7 @@ import VAccordion, { type AccItem } from "@/components/VAccordion.vue";
 import VTab, { type TabItem } from "@/components/VTab.vue";
 import VAlert, { type Props as AlertProps } from "@/components/VAlert.vue";
 import VCard from "@/components/VCard.vue";
+import VLoader from "@/components/VLoader.vue";
 
 const show = ref(false);
 
@@ -39,10 +40,19 @@ function _alertHide() {
   alert.message = "";
   alert.show = false;
 }
+
+const loader = ref(false);
+
+function _testLoader() {
+  loader.value = true;
+  setTimeout(() => {
+    loader.value = false;
+  }, 2000);
+}
 </script>
 <template>
   <div class="container">
-    <p>Exemplo de componentes</p>
+    <p>Exemplo de componentes II</p>
     <div class="row">
       <!--modal-->
       <v-modal title="Modal de teste" :show="show">
@@ -131,6 +141,10 @@ function _alertHide() {
         :white-text="true"
         :color="Colors.Primary"
       />
+      <!--loader-->
+      <h5 class="mt-4">Loader:</h5>
+      <v-loader align="center" :show="loader" />
+      <v-button :color="Colors.Light" label="Loader" @click="_testLoader" />
     </div>
   </div>
 </template>

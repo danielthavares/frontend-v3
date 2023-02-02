@@ -10,14 +10,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/example/form",
-      name: "example_form",
-      component: () => import("../views/InputFormExampleView.vue"),
+      path: "/examplei",
+      name: "examplei",
+      component: () => import("../views/ExampleIView.vue"),
     },
     {
-      path: "/example/components",
-      name: "example_components",
-      component: () => import("../views/ComponentsView.vue"),
+      path: "/exampleii",
+      name: "exampleii",
+      component: () => import("../views/ExampleIIView.vue"),
     },
     {
       path: "/about",
