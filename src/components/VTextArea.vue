@@ -8,7 +8,7 @@ interface Props {
   rows?: number;
   disabled?: boolean;
   required?: boolean;
-  failures?: Array<string>;
+  failures?: string[];
 }
 
 withDefaults(defineProps<Props>(), {

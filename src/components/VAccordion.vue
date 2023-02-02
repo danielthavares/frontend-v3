@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
+export interface AccItem {
+  id: string;
+  label: string;
+}
+
 interface Props {
-  accordions: Array<any>;
+  accordions: AccItem[];
   initial: string | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  /**Array de objetos: [{ id: 'home', label: 'Home'}, { id: 'home2', label: 'Home 2'}] */
   accordions: () => [],
   initial: null,
 });

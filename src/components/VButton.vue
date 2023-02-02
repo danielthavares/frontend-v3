@@ -1,18 +1,19 @@
 <script setup lang="ts">
+import { Colors } from "@/util/EnumColors";
 import { computed } from "vue";
 
 interface Props {
   icon?: string | null;
   label?: string;
   size?: number | null;
-  color?: string;
+  color?: Colors;
   disabled?: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   icon: null,
   label: "label",
   size: null,
-  color: "default",
+  color: Colors.Secondary,
   disabled: false,
 });
 

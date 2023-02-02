@@ -10,7 +10,7 @@ interface Props {
   label?: string;
   disabled?: boolean;
   required?: boolean;
-  failures?: Array<string>;
+  failures?: string[];
   i18n?: any;
 }
 

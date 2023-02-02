@@ -8,13 +8,13 @@ interface Props {
   label?: string;
   disabled?: boolean;
   required?: boolean;
-  failures?: Array<string>;
+  failures?: string[];
   scale?: number;
   signed?: boolean;
   padFractionalZeros?: boolean;
   normalizeZeros?: boolean;
   radix?: string;
-  mapToRadix?: Array<string>;
+  mapToRadix?: string[];
   min?: number | null;
   max?: number | null;
 }

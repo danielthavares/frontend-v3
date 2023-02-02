@@ -1,6 +1,6 @@
 <script setup lang="ts">
 export interface Props {
-  failures?: Array<string>;
+  failures?: string[];
 }
 withDefaults(defineProps<Props>(), {
   failures: () => [],

@@ -1,45 +1,41 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
+import { Colors } from "@/util/EnumColors";
 import VButton from "@/components/VButton.vue";
 import VModal from "@/components/VModal.vue";
-import VAccordion from "@/components/VAccordion.vue";
-import VTab from "@/components/VTab.vue";
-import VAlert from "@/components/VAlert.vue";
+import VAccordion, { type AccItem } from "@/components/VAccordion.vue";
+import VTab, { type TabItem } from "@/components/VTab.vue";
+import VAlert, { type Props as AlertProps } from "@/components/VAlert.vue";
+import VCard from "@/components/VCard.vue";
 
 const show = ref(false);
 
-const accordions = [
+const accordions: AccItem[] = [
   { id: "acc1", label: "Item 1" },
   { id: "acc2", label: "Item 2" },
   { id: "acc3", label: "Item 3" },
 ];
 
-const tabs = [
+const tabs: TabItem[] = [
   { id: "tab1", label: "Tab 1" },
   { id: "tab2", label: "Tab2" },
   { id: "tab3", label: "Tab3" },
 ];
 
-interface iAlert {
-  color: string;
-  message: string | Array<string>;
-  show: boolean;
-}
-
-const alert = reactive<iAlert>({
-  color: "",
+const alert: AlertProps = reactive({
+  color: Colors.Secondary,
   message: "",
   show: false,
 });
 
-function _alertShow(color: string, message: string | Array<string>) {
+function _alertShow(color: Colors, message: string | string[]) {
   alert.color = color;
   alert.message = message;
   alert.show = true;
 }
 
 function _alertHide() {
-  alert.color = "";
+  alert.color = Colors.Secondary;
   alert.message = "";
   alert.show = false;
 }
@@ -54,10 +50,18 @@ function _alertHide() {
           <p class="text-justify">Texto que será exibido no corpo da modal</p>
         </template>
         <template #footer>
-          <v-button label="Fechar" color="secondary" @click="show = false" />
+          <v-button
+            label="Fechar"
+            :color="Colors.Secondary"
+            @click="show = false"
+          />
         </template>
       </v-modal>
-      <v-button color="primary" label="Toggle modal" @click="show = !show" />
+      <v-button
+        :color="Colors.Primary"
+        label="Toggle modal"
+        @click="show = !show"
+      />
       <!--accordion-->
       <h5 class="mt-4">Accordion:</h5>
       <v-accordion class="mt-1" :accordions="accordions" initial="acc1">
@@ -95,27 +99,38 @@ function _alertHide() {
       <div class="row">
         <div class="col">
           <v-button
-            color="success"
+            :color="Colors.Success"
             label="Sucesso"
-            @click="_alertShow('success', 'Sucesso')"
+            @click="_alertShow(Colors.Success, 'Sucesso')"
           />
           <v-button
-            color="warning"
+            :color="Colors.Warning"
             label="Atenção"
-            @click="_alertShow('warning', 'Atenção')"
+            @click="_alertShow(Colors.Warning, 'Atenção')"
           />
           <v-button
-            color="danger"
+            :color="Colors.Danger"
             label="Erro"
-            @click="_alertShow('danger', 'Erro')"
+            @click="_alertShow(Colors.Danger, 'Erro')"
           />
           <v-button
-            color="primary"
+            :color="Colors.Primary"
             label="Informações"
-            @click="_alertShow('primary', ['Info 01', 'Info 02', 'Info 03'])"
+            @click="
+              _alertShow(Colors.Primary, ['Info 01', 'Info 02', 'Info 03'])
+            "
           />
         </div>
       </div>
+      <!--card-->
+      <h5 class="mt-4">Card:</h5>
+      <v-card
+        header="Header"
+        title="Card Title"
+        text="Card text"
+        :white-text="true"
+        :color="Colors.Primary"
+      />
     </div>
   </div>
 </template>

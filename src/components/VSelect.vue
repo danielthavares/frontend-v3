@@ -13,7 +13,7 @@ interface Props {
   label?: string;
   disabled?: boolean;
   required?: boolean;
-  failures?: Array<string>;
+  failures?: string[];
 }
 
 const props = withDefaults(defineProps<Props>(), {

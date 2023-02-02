@@ -5,7 +5,7 @@ import VFailures from "./VFailures.vue";
 export interface Props {
   label?: string;
   required?: boolean;
-  failures?: Array<string>;
+  failures?: string[];
 }
 withDefaults(defineProps<Props>(), {
   failures: () => [],

@@ -8,7 +8,7 @@ interface Props {
   password?: boolean;
   label?: string;
   required?: boolean;
-  failures?: Array<string>;
+  failures?: string[];
 }
 
 withDefaults(defineProps<Props>(), {

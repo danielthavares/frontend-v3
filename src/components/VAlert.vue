@@ -1,17 +1,17 @@
 <script setup lang="ts">
+import { Colors } from "@/util/EnumColors";
 import { computed, watch, ref, onUnmounted } from "vue";
 
-interface Props {
-  message: string | Array<string> | null;
+export interface Props {
+  message: string | string[] | null;
   show: boolean;
-  color?: string;
+  color?: Colors;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   message: null,
   show: false,
-  /** primary, secondary, success, danger, warning, info*/
-  default: "light",
+  default: Colors.Light,
 });
 
 let timeOut = ref();

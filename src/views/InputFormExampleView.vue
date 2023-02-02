@@ -14,6 +14,7 @@ import VAutoComplete from "@/components/VAutoComplete.vue";
 import { names } from "@/services/examples/nomes";
 
 import { ref, computed } from "vue";
+import { Colors } from "@/util/EnumColors";
 
 const errors = {
   with: ["error one", "error two"],
@@ -63,14 +64,22 @@ const erro = computed(() => (contemErro.value ? "with" : "without"));
     <div class="row">
       <div class="col">
         <v-button
-          color="primary"
+          :color="Colors.Primary"
           label="Requerido?"
           @click="required = !required"
         />
-        <v-button color="success" label="Habilitar" @click="disabled = false" />
-        <v-button color="danger" label="Desabilitar" @click="disabled = true" />
         <v-button
-          color="warning"
+          :color="Colors.Success"
+          label="Habilitar"
+          @click="disabled = false"
+        />
+        <v-button
+          :color="Colors.Danger"
+          label="Desabilitar"
+          @click="disabled = true"
+        />
+        <v-button
+          :color="Colors.Warning"
           label="Contém erro?"
           @click="contemErro = !contemErro"
         />
