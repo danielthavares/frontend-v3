@@ -2,7 +2,8 @@
 
 Biblioteca de componentes Vue 3.
 
-[Exemplo](https://danielthavares.github.io/frontend-v3/)
+<a href="https://danielthavares.github.io/frontend-v3/" target="_blank">Exemplo</a>
+
 ## Project Setup
 
 ```sh
