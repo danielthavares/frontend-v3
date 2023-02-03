@@ -52,7 +52,7 @@ function _testLoader() {
 </script>
 <template>
   <div class="container">
-    <p>Exemplo de componentes II</p>
+    <p>Exemplo de componentes II - Vários</p>
     <div class="row">
       <!--modal-->
       <v-modal title="Modal de teste" :show="show">

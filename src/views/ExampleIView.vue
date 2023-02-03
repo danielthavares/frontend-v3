@@ -60,7 +60,7 @@ const erro = computed(() => (contemErro.value ? "with" : "without"));
 
 <template>
   <div class="container">
-    <p>Exemplo de componentes I - formulário</p>
+    <p>Exemplo de componentes I - Formulário</p>
     <div class="row">
       <div class="col">
         <v-button
