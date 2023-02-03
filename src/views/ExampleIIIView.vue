@@ -54,6 +54,9 @@ function _upload(file: File, data: Map<string, string>): Promise<FileItem> {
 function _download(identificador: string, nome: string): Promise<void> {
   return new Promise((resolve, reject) => {
     try {
+      /**
+       * Chamada ao serviço de download da sua aplicação.
+       */
       setTimeout(
         () => resolve(console.log("download", { identificador, nome })),
         3000
@@ -68,6 +71,9 @@ function _remove(identificador: string): Promise<void> {
   console.log("remove", identificador);
   return new Promise((resolve, reject) => {
     try {
+      /**
+       * Chamada ao servico de delete da sua aplicação
+       */
       setTimeout(() => resolve(console.log("remove", { identificador })), 3000);
     } catch {
       reject("Não foi possível remover o arquivo!");
