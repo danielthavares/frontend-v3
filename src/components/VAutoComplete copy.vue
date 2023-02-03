@@ -8,7 +8,9 @@ interface Props {
   description: string;
   maxlength?: number;
   width?: number;
-  searchFn: (param: string) => Promise<object[]>;
+  searchFn?: Function;
+  successFn?: Function;
+  errorFn?: Function;
   interval?: number;
   label?: string;
   disabled?: boolean;
@@ -22,6 +24,9 @@ const props = withDefaults(defineProps<Props>(), {
   description: "description",
   maxlength: 50,
   width: 250,
+  searchFn: (param: string) => param,
+  successFn: (res: any) => res,
+  errorFn: (err: any) => err,
   interval: 2,
   disabled: false,
   required: false,
@@ -36,9 +41,9 @@ const termo = ref();
 const local = computed(() =>
   props.modelValue ? props.modelValue[props.description] : null
 );
-const items = ref<any>([]);
+const items = ref([]);
 const isBusy = ref(false);
-const error = ref<string | null>(null);
+const error = ref(null);
 const hasError = computed(() => props.failures.length > 0);
 const hasErrorButton = computed(() =>
   hasError.value ? "btn-outline-danger" : "btn-outline-secondary"
@@ -48,7 +53,7 @@ watch(local, (nValue) => {
   termo.value = nValue;
 });
 
-async function _pesquisando(value: Event) {
+function _pesquisando(value: Event) {
   let vl = (value.target as HTMLInputElement).value;
   termo.value = vl;
   error.value = null;
@@ -61,16 +66,18 @@ async function _pesquisando(value: Event) {
   if (vl.length >= props.interval && vl.length % props.interval === 0) {
     items.value = [];
     isBusy.value = true;
-
-    try {
-      const response = await props.searchFn(vl);
-      items.value = response;
-    } catch (err: any) {
-      items.value = [];
-      error.value = typeof err === "string" ? err : "Erro ao pesquisar.";
-    } finally {
-      isBusy.value = false;
-    }
+    props
+      .searchFn(vl)
+      .then((res: any) => {
+        items.value = props.successFn(res);
+      })
+      .catch((err: any) => {
+        items.value = [];
+        error.value = props.errorFn(err) || "Erro ao pesquisar.";
+      })
+      .finally(() => {
+        isBusy.value = false;
+      });
   }
 }
 

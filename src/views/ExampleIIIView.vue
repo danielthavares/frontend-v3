@@ -117,9 +117,8 @@ function _remove(identificador: string): Promise<void> {
         />
       </div>
       <div class="col">
-        <pre>
-             {{ files }}
-        </pre>
+        <p>uploado files:</p>
+        <pre>{{ files }}</pre>
       </div>
     </div>
   </div>

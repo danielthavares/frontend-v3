@@ -9,10 +9,6 @@ import VRadio from "@/components/VRadio.vue";
 import VTooltip from "@/components/VTooltip.vue";
 import VSelect from "@/components/VSelect.vue";
 import VButton from "@/components/VButton.vue";
-import VAutoComplete from "@/components/VAutoComplete.vue";
-
-import { names } from "@/services/examples/nomes";
-
 import { ref, computed } from "vue";
 import { Colors } from "@/util/EnumColors";
 
@@ -50,7 +46,6 @@ const textAreaModel = ref(null);
 const checkBoxModel = ref();
 const radioModel = ref();
 const selectModel = ref();
-const autoCompleteModel = ref({ id: 8, name: "João" });
 
 const required = ref(true);
 const disabled = ref(false);
@@ -162,16 +157,6 @@ const erro = computed(() => (contemErro.value ? "with" : "without"));
           :disabled="disabled"
           :value-no-selected="null"
         />
-        <v-auto-complete
-          id="id"
-          v-model="autoCompleteModel"
-          label="Auto Complete"
-          description="name"
-          :search-fn="names"
-          :failures="errors[erro]"
-          :required="required"
-          :disabled="disabled"
-        />
       </div>
       <div class="col">
         <v-tooltip message="State">
@@ -186,7 +171,6 @@ const erro = computed(() => (contemErro.value ? "with" : "without"));
           <p>check box model: {{ checkBoxModel }}</p>
           <p>radio model: {{ radioModel }}</p>
           <p>select model: {{ selectModel }}</p>
-          <p>auto complete model: {{ autoCompleteModel }}</p>
         </pre>
       </div>
     </div>
