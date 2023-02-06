@@ -1,3 +1,6 @@
+<script setup lang="ts"></script>
 <template>
-  <p>Home</p>
+  <div class="container">
+    <p>Home</p>
+  </div>
 </template>

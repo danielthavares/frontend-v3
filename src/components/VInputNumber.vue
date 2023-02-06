@@ -36,7 +36,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 const el = ref();
 const mask = ref();
-const emit = defineEmits(["update:model-value"]);
+const emit = defineEmits<{
+  (e: "update:model-value", value: number | null): void;
+}>();
 
 const local = computed(() => props.modelValue);
 

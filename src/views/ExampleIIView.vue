@@ -52,6 +52,12 @@ function _testLoader() {
 </script>
 <template>
   <div class="container">
+    <v-alert
+      :color="alert.color"
+      :message="alert.message"
+      :show="alert.show"
+      @close="_alertHide"
+    />
     <p>Exemplo de componentes II - Vários</p>
     <div class="row">
       <!--modal-->
@@ -99,19 +105,16 @@ function _testLoader() {
         </template>
       </v-tab>
       <!--alert-->
-      <v-alert
-        :color="alert.color"
-        :message="alert.message"
-        :show="alert.show"
-        @close="_alertHide"
-      />
+
       <h5>Alert:</h5>
       <div class="row">
         <div class="col">
           <v-button
             :color="Colors.Success"
             label="Sucesso"
-            @click="_alertShow(Colors.Success, 'Sucesso')"
+            @click="
+              _alertShow(Colors.Success, 'Operação executada com sucesso.')
+            "
           />
           <v-button
             :color="Colors.Warning"
@@ -121,13 +124,22 @@ function _testLoader() {
           <v-button
             :color="Colors.Danger"
             label="Erro"
-            @click="_alertShow(Colors.Danger, 'Erro')"
+            @click="
+              _alertShow(
+                Colors.Danger,
+                'Não foi possível realizar a operação. Por favor tente novamente mais tarde.'
+              )
+            "
           />
           <v-button
             :color="Colors.Primary"
             label="Informações"
             @click="
-              _alertShow(Colors.Primary, ['Info 01', 'Info 02', 'Info 03'])
+              _alertShow(Colors.Primary, [
+                'Mensagem de Informação 01',
+                'Mensagem de Informação 02',
+                'Mensagem de Informação 03',
+              ])
             "
           />
         </div>

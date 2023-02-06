@@ -1,17 +1,61 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
+import type { MenuItem } from "@/components/VHeader.vue";
+import VHeader from "@/components/VHeader.vue";
+
+const sistema = "Sistema";
+const informacao = "Informação sobre o sistema";
+const usuario = "Usuário";
+const menus: MenuItem[] = [
+  {
+    label: "Exemplos",
+    itens: [
+      {
+        name: "Exemplo I",
+        link: "/examplei",
+      },
+      {
+        name: "Exemplo II",
+        link: "/exampleii",
+      },
+      {
+        name: "Exemplo III",
+        link: "/exampleiii",
+      },
+      {
+        name: null, //divider
+      },
+      {
+        name: "Exemplo IV",
+        link: "/exampleiv",
+      },
+    ],
+  },
+  {
+    label: "Informações",
+    itens: [
+      {
+        name: "About",
+        link: "/about",
+      },
+    ],
+  },
+];
+
+function _logoff(): Promise<void> {
+  return Promise.resolve(console.log("Implementar ação de logoff."));
+}
 </script>
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/" class="me-2">Home</RouterLink>
-      <RouterLink to="/examplei" class="me-2">Example I</RouterLink>
-      <RouterLink to="/exampleii" class="me-2">Example II</RouterLink>
-      <RouterLink to="/exampleiii" class="me-2">Example III</RouterLink>
-      <RouterLink to="/exampleiv" class="me-2">Example IV</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav>
+    <v-header
+      :sistema="sistema"
+      :informacao="informacao"
+      :usuario="usuario"
+      :menus="menus"
+      :logoff="_logoff"
+    ></v-header>
   </header>
 
   <main>

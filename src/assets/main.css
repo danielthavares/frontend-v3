@@ -8,3 +8,10 @@ body {
 #app {
   font-family: "Roboto", sans-serif;
 }
+
+body {
+  color: #333;
+  font-size: 15px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
