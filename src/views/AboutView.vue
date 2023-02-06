@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h5>Libraries</h5>
+    <h5>Bibliotecas</h5>
     <pre>
       <a href="https://bootswatch.com/yeti/" target="_blank">Boostrap Theme</a>
       <a href="https://icons.getbootstrap.com/font/" target="_blank">Boostrap Icons Font</a>

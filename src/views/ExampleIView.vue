@@ -50,6 +50,7 @@ const selectModel = ref();
 const required = ref(true);
 const disabled = ref(false);
 const contemErro = ref(false);
+const password = ref(false);
 const erro = computed(() => (contemErro.value ? "with" : "without"));
 </script>
 
@@ -79,13 +80,22 @@ const erro = computed(() => (contemErro.value ? "with" : "without"));
           @click="contemErro = !contemErro"
         />
         <hr />
-        <v-input
-          v-model="inputModel"
-          label="Input"
-          :failures="errors[erro]"
-          :required="required"
-          :disabled="disabled"
-        />
+        <div class="row">
+          <div class="col-8">
+            <v-input
+              v-model="inputModel"
+              label="Input"
+              :maxlength="25"
+              :failures="errors[erro]"
+              :required="required"
+              :disabled="disabled"
+              :password="password"
+            />
+          </div>
+          <div class="col">
+            <v-check-box v-model="password" description="password?" as-switch />
+          </div>
+        </div>
         <v-input-date
           v-model="inputDateModel"
           label="Input Date"
@@ -163,7 +173,7 @@ const erro = computed(() => (contemErro.value ? "with" : "without"));
           <p class="fw-bold">State <small>com tooltip</small></p>
         </v-tooltip>
         <pre>
-          <p>input model: {{ inputModel }}</p>
+          <p>input model: {{ password ? "": inputModel }}</p>
           <p>input date model: {{ inputDateModel }}</p>
           <p>input mask model: {{ inputMaskModel }}</p>
           <p>input number model: {{ inputNumberModel }}</p>

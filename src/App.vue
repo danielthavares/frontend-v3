@@ -29,6 +29,10 @@ const menus: MenuItem[] = [
         name: "Exemplo IV",
         link: "/exampleiv",
       },
+      {
+        name: "Exemplo V",
+        link: "/examplev",
+      },
     ],
   },
   {
