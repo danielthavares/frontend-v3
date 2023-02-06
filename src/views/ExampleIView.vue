@@ -38,7 +38,7 @@ const options = [
   },
 ];
 
-const inputModel = ref(null);
+const inputModel = ref("inputtext");
 const inputDateModel = ref("2023-01-30T03:00:00.000Z");
 const inputMaskModel = ref();
 const inputNumberModel = ref(-900.99);

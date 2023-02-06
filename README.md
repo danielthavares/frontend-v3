@@ -1,8 +1,8 @@
 # frontend-v3
 
-## Biblioteca de componentes Vue 3.
+Componentes construídos com vue 3 typescript.
 
-### Bibliotecas utilizadas:
+## Bibliotecas utilizadas:
 
 [Boostrap Theme](https://bootswatch.com/yeti/)
 
