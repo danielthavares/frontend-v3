@@ -2,7 +2,7 @@
 
 Componentes construídos em vue 3 typescript.
 
-[Exemplo de uso](https://danielthavares.github.io/frontend-v3/){target="\_blank"}
+[Exemplo de uso](https://danielthavares.github.io/frontend-v3/)
 
 ## Project Setup
 
@@ -30,10 +30,10 @@ npm run lint
 
 ## Bibliotecas utilizadas:
 
-[Boostrap Theme](https://bootswatch.com/yeti/){target="\_blank"}
+[Boostrap Theme](https://bootswatch.com/yeti/)
 
-[Boostrap Icons Font](https://icons.getbootstrap.com/font/){target="\_blank"}
+[Boostrap Icons Font](https://icons.getbootstrap.com/font/)
 
-[Imask](https://imask.js.org){target="\_blank"}
+[Imask](https://imask.js.org)
 
-[Day Js](https://day.js.org){target="\_blank"}
+[Day Js](https://day.js.org)
