@@ -47,7 +47,7 @@ const menus: MenuItem[] = [
 ];
 
 function _logoff(): Promise<void> {
-  return Promise.resolve(console.log("Implementar ação de logoff."));
+  return Promise.resolve(alert("Implementar ação de logoff."));
 }
 </script>
 

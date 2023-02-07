@@ -28,7 +28,7 @@ npm run build
 npm run lint
 ```
 
-## Bibliotecas utilizadas:
+## Bibliotecas utilizadas
 
 [Boostrap Theme](https://bootswatch.com/yeti/)
 
