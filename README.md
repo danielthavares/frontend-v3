@@ -30,9 +30,9 @@ npm run lint
 
 ## Bibliotecas utilizadas
 
-[Boostrap Theme](https://bootswatch.com/yeti/)
+[Bootstrap Theme](https://bootswatch.com/yeti/)
 
-[Boostrap Icons Font](https://icons.getbootstrap.com/font/)
+[Bootstrap Icons Font](https://icons.getbootstrap.com/font/)
 
 [Imask](https://imask.js.org)
 
